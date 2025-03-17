@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ movement.movement }} | KunstReise</title>
+  <meta name="description" content="Explore the {{ movement.movement }} movement, its historical context, and key features that defined this revolutionary approach to painting.">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/escuela-layout.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo">KunstReise</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav">
+        <a href="/escuelas" class="nav-link">Escuelas</a>
+        <a href="/artists" class="nav-link">Artists</a>
+        <a href="/obras-primas" class="nav-link">ObrasPrimas</a>
+        <a href="/about" class="nav-link">About</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Art Movement Header -->
+  <section class="art-movement-header">
+    <div class="container">
+      <h1 class="art-movement-title">{{ movement.movement }}</h1>
+      <p class="art-movement-period">{{ movement.time_period }}</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="art-movement-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <article class="main-content">
+          <section class="historical-context">
+            <h2>Historical Context</h2>
+            {{ movement.context }}
+          </section>
+          
+          <section class="key-features">
+            <h2>Key Features</h2>
+            {{ movement.characteristics }}
+          </section>
+        </article>
+
+        <aside class="sidebar">
+          <div class="notable-artists">
+            <h3>Notable Artists</h3>
+            <ul>
+              {% for artist in artists %}
+              <li>
+                <a href="/artists/{{ artist.slug }}">{{ artist.artist_name }}</a>
+                <span class="artist-country">(<i>{{ artist.country }}</i>)</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Masterpiece Gallery -->
+  <section class="masterpiece-gallery">
+    <div class="container">
+      <h2 class="gallery-title">Iconic {{ movement.movement }} Masterpieces</h2>
+      
+      <div class="gallery-grid">
+        {% for painting in paintings %}
+        <a href="/paintings/{{ painting.slug }}" class="artwork-card-link">
+          <div class="artwork-card">
+            <div class="artwork-image-container">
+              <img src="/static/images/paintings/{{ painting.slug }}.jpg" alt="{{ painting.painting_name }} by {{ painting.artist_name }}" class="artwork-image">
+            </div>
+            <div class="artwork-info">
+              <h3 class="artwork-title">{{ painting.painting_name }}</h3>
+              <p class="artwork-artist">{{ painting.artist_name }}</p>
+              <p class="artwork-year">{{ painting.year }}</p>
+            </div>
+            <div class="artwork-overlay">
+              <div class="artwork-overlay-content">
+                <h3 class="artwork-overlay-title">{{ painting.painting_name }}</h3>
+                <p class="artwork-overlay-artist">{{ painting.artist_name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">KunstReise</h3>
+          <p class="footer-description">
+            Exploring the journey of art through movements, artists, and masterpieces.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="/escuelas" class="footer-link">Escuelas</a></li>
+            <li><a href="/artists" class="footer-link">Artists</a></li>
+            <li><a href="/obras-primas" class="footer-link">ObrasPrimas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">About</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="about.html" class="footer-link">Read about this project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <script>document.write(new Date().getFullYear())</script> KunstReise. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

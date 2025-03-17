@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artists | KunstReise</title>
+  <meta name="description" content="Discover the visionaries who pushed boundaries and redefined artistic expression throughout history.">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <link rel="stylesheet" href="static/css/artists-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo">KunstReise</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav">
+        <a href="/escuelas" class="nav-link">Escuelas</a>
+        <a href="/artists" class="nav-link">Artists</a>
+        <a href="/obras-primas" class="nav-link">ObrasPrimas</a>
+        <a href="/about" class="nav-link">About</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Page Header -->
+  <section class="page-header bg-secondary">
+    <div class="container">
+      <h1 class="page-title">Renowned Artists</h1>
+      <p class="page-description">
+        Meet the visionaries who pushed boundaries and redefined artistic expression throughout history.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Filter Controls -->
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-controls">
+        <button class="filter-button active" data-filter="all">All Artists</button>
+        {% for movement in art_movements %}
+        <button class="filter-button" data-filter="{{ movement.movement }}">{{ movement.movement }}</button>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Artists Mosaic -->
+  <section class="container">
+    <div class="artists-grid">
+
+      {% for artist in artists %}
+      <a href="artists/{{ artist.slug }}" class="artist-card" data-category="{{ artist.movement }}">
+        <img src="https://via.placeholder.com/800x800" alt="{{ artist.artist_name }}" class="artist-image">
+        <div class="artist-overlay">
+          <span class="artist-movement">{{ artist.movement }}</span>
+          <h3 class="artist-name">{{ artist.artist_name }}</h3>
+          <span class="artist-years">{{ artist.time_period }}</span>
+        </div>
+      </a>
+      {% endfor %}
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">KunstReise</h3>
+          <p class="footer-description">
+            Exploring the journey of art through movements, artists, and masterpieces.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="/escuelas" class="footer-link">Escuelas</a></li>
+            <li><a href="/artists" class="footer-link">Artists</a></li>
+            <li><a href="/obras-primas" class="footer-link">ObrasPrimas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">About</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="about.html" class="footer-link">Read about this project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <script>document.write(new Date().getFullYear())</script> KunstReise. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-button');
+      const artistCards = document.querySelectorAll('.artist-card');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          const filter = this.getAttribute('data-filter');
+          
+          // Show/hide artist cards based on filter
+          artistCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+/* Art Movement Page Specific Styles */
+
+/* Art Movement Header */
+.art-movement-header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.art-movement-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.art-movement-period {
+  font-size: 1.25rem;
+  opacity: 0.8;
+}
+
+/* Main Content Layout */
+.art-movement-content {
+  padding: 4rem 1rem;
+  background-color: var(--color-muted);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.sidebar {
+  width: 100%;
+}
+
+/* Main Content Styles */
+.historical-context,
+.key-features {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.main-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.key-features ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.key-features li {
+  margin-bottom: 0.75rem;
+}
+
+/* Sidebar Styles */
+.sidebar h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.quick-facts,
+.notable-artists {
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.quick-facts ul,
+.notable-artists ul {
+  list-style-type: square;
+  padding: 0;
+  padding-left: 1rem;
+}
+
+.artist-country {
+  color: var(--color-primary)
+}
+
+.quick-facts li,
+.notable-artists li {
+  margin-bottom: 0.5rem;
+}
+
+/* Masterpiece Gallery */
+.masterpiece-gallery {
+  padding: 6rem 1rem;
+  background-color: var(--color-muted);
+  position: relative;
+  overflow: hidden;
+}
+
+.masterpiece-gallery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(to right, var(--color-foreground), var(--color-accent), var(--color-secondary));
+}
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  position: relative;
+}
+
+.gallery-title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 3px;
+  background-color: var(--color-secondary);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Artwork Cards */
+.artwork-card {
+  position: relative;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.artwork-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.artwork-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.artwork-card:hover .artwork-image {
+  transform: scale(1.1);
+}
+
+.artwork-info {
+  padding: 1.5rem;
+  background-color: var(--color-muted);
+}
+
+.artwork-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--color-foreground);
+}
+
+.artwork-artist {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.artwork-year {
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+  opacity: 0.7;
+}
+
+/* Artwork Overlay */
+.artwork-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .artwork-overlay {
+  opacity: 1;
+}
+
+.artwork-overlay-content {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease 0.1s;
+  width: 100%;
+}
+
+.artwork-card:hover .artwork-overlay-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.artwork-overlay-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.artwork-overlay-artist {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.artwork-overlay-description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+
+  .main-content {
+    flex: 2;
+  }
+
+  .sidebar {
+    flex: 1;
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .art-movement-title {
+    font-size: 4rem;
+  }
+
+  .art-movement-period {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Add a subtle animation effect to the gallery section */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.masterpiece-gallery {
+  animation: fadeIn 1s ease-out;
+}
+
+.artwork-card:nth-child(1) {
+  animation: fadeIn 1s ease-out 0.2s backwards;
+}
+
+.artwork-card:nth-child(2) {
+  animation: fadeIn 1s ease-out 0.4s backwards;
+}
+
+.artwork-card:nth-child(3) {
+  animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+.artwork-card:nth-child(4) {
+  animation: fadeIn 1s ease-out 0.8s backwards;
+}
+

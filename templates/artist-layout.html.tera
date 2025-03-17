@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ artist_data.artist_name }} | KunstReise</title>
+  <meta name="description" content="Explore the life, work and legacy of {{ artist_data.artist_name }}, one of the most influential figures in Western art.">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/artist-layout.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo">KunstReise</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav">
+        <a href="/escuelas" class="nav-link">Escuelas</a>
+        <a href="/artists" class="nav-link">Artists</a>
+        <a href="/obras-primas" class="nav-link">ObrasPrimas</a>
+        <a href="/about" class="nav-link">About</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Artist Hero Section -->
+  <section class="artist-hero">
+    <div class="artist-hero-image-container">
+      <img src="https://via.placeholder.com/1200x800" alt="{{ artist_data.artist_name }}" class="artist-hero-image">
+      <div class="artist-hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="artist-hero-content">
+        <h1 class="artist-name">{{ artist_data.artist_name }}</h1>
+        <div class="artist-quick-info">
+          <div class="artist-info-item">
+            <span class="info-label">Country</span>
+            <span class="info-value">{{ artist_data.country }}</span>
+          </div>
+          <div class="artist-info-item">
+            <span class="info-label">Lived</span>
+            <span class="info-value">{{ artist_data.time_period }}</span>
+          </div>
+          <div class="artist-info-item">
+            <span class="info-label">Movement</span>
+            <a href="/escuelas/{{ movement_slug }}" class="info-value movement-link">{{ artist_data.movement }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist Content -->
+  <main class="artist-content">
+    <div class="container">
+
+      <!-- Artistic Style Section -->
+      <section class="artistic-style">
+        <div class="section-header">
+          <h2>Artist Information</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="style-content">
+          <div class="style-text">
+            <h3>Biography</h3>
+            <p>
+                {{ artist_data.biography }}
+            </p>
+          </div>
+          <div class="style-influence">
+            <h3>Distintive Features</h3>
+            <p>
+                {{ artist_data.characteristics }}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Masterpieces Gallery -->
+      <section class="masterpieces">
+        <div class="section-header">
+          <h2>Notable Works</h2>
+          <div class="section-divider"></div>
+        </div>
+        
+        <div class="masterpieces-carousel">
+        
+          {% for painting in paintings %}
+          <div class="masterpiece-card">
+            <div class="masterpiece-image-container">
+              <img src="https://via.placeholder.com/800x600" alt="{{ painting.painting_name }}" class="masterpiece-image">
+              <div class="masterpiece-overlay">
+                <a href="/obras-primas/{{ painting.slug }}" class="view-button">View Details</a>
+              </div>
+            </div>
+            <div class="masterpiece-info">
+              <h3 class="masterpiece-title">{{ painting.painting_name }}</h3>
+              <p class="masterpiece-year">{{ painting.year }}</p>
+              <p class="masterpiece-description">{{ painting.location }}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        
+        <div class="carousel-controls">
+          <button class="carousel-button prev-button" aria-label="Previous painting">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="carousel-dots">
+            <button class="dot active" aria-label="Go to slide 1"></button>
+            <button class="dot" aria-label="Go to slide 2"></button>
+            <button class="dot" aria-label="Go to slide 3"></button>
+            <button class="dot" aria-label="Go to slide 4"></button>
+            <button class="dot" aria-label="Go to slide 5"></button>
+          </div>
+          <button class="carousel-button next-button" aria-label="Next painting">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">KunstReise</h3>
+          <p class="footer-description">
+            Exploring the journey of art through movements, artists, and masterpieces.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="/escuelas" class="footer-link">Escuelas</a></li>
+            <li><a href="/artists" class="footer-link">Artists</a></li>
+            <li><a href="/obras-primas" class="footer-link">ObrasPrimas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">About</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="about.html" class="footer-link">Read about this project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <script>document.write(new Date().getFullYear())</script> KunstReise. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.querySelector('.masterpieces-carousel');
+      const cards = document.querySelectorAll('.masterpiece-card');
+      const dots = document.querySelectorAll('.dot');
+      const prevButton = document.querySelector('.prev-button');
+      const nextButton = document.querySelector('.next-button');
+      
+      let currentIndex = 0;
+      let cardWidth = cards[0].offsetWidth;
+      let cardsToShow = 1;
+      
+      // Determine how many cards to show based on screen width
+      function updateCardsToShow() {
+        if (window.innerWidth >= 1024) {
+          cardsToShow = 3;
+        } else if (window.innerWidth >= 768) {
+          cardsToShow = 2;
+        } else {
+          cardsToShow = 1;
+        }
+        updateCarousel();
+      }
+      
+      // Update carousel position
+      function updateCarousel() {
+        cardWidth = cards[0].offsetWidth;
+        const gap = 16; // Gap between cards in pixels
+        carousel.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Enable/disable buttons
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex >= cards.length - 1; 
+      }
+      
+      // Event listeners for buttons
+      prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+      
+      nextButton.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+      
+      // Event listeners for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = Math.min(index, cards.length - cardsToShow);
+            updateCarousel();
+        });
+      });
+      
+      // Update on resize
+      window.addEventListener('resize', updateCardsToShow);
+      
+      // Initial setup
+      updateCardsToShow();
+    });
+  </script>
+</body>
+</html>

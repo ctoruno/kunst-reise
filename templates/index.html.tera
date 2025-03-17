@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KunstReise | Explore Art Movements</title>
+  <meta name="description" content="Discover the world of art movements, artists, and masterpieces throughout history.">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo">KunstReise</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav">
+        <a href="/escuelas" class="nav-link">Escuelas</a>
+        <a href="/artists" class="nav-link">Artists</a>
+        <a href="/obras-primas" class="nav-link">ObrasPrimas</a>
+        <a href="/about" class="nav-link">About</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <img src="https://via.placeholder.com/1920x1080" alt="Art collage" class="hero-image">
+    <div class="hero-content">
+      <h1 class="hero-title">Discover the World of Art Movements</h1>
+      <p class="hero-description">Explore the evolution of artistic expression through history</p>
+      <a href="/escuelas" class="hero-button">Start Exploring</a>
+    </div>
+  </section>
+  
+  <!-- Main Sections -->
+  <section class="py-20">
+    <div class="container">
+      <h2 class="text-3xl text-center mb-16">Explore Art Through Time</h2>
+      
+      <!-- Three Main Sections -->
+      <div class="section-cards">
+        <!-- Escuelas -->
+        <div class="section-card">
+          <div class="section-card-image-container">
+            <img src="https://via.placeholder.com/800x600" alt="Art Movements" class="section-card-image">
+          </div>
+          <div class="section-card-content">
+            <h3 class="section-card-title text-primary">Escuelas</h3>
+            <p class="section-card-description">
+              Discover the distinctive styles and philosophies that defined art movements throughout history.
+            </p>
+            <a href="/escuelas" class="section-card-link text-primary">
+              Explore Movements
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Artists -->
+        <div class="section-card">
+          <div class="section-card-image-container">
+            <img src="https://via.placeholder.com/800x600" alt="Famous Artists" class="section-card-image">
+          </div>
+          <div class="section-card-content">
+            <h3 class="section-card-title text-secondary">Artists</h3>
+            <p class="section-card-description">
+              Meet the visionaries who pushed boundaries and redefined artistic expression.
+            </p>
+            <a href="/artists" class="section-card-link text-secondary">
+              Meet the Artists
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- ObrasPrimas -->
+        <div class="section-card">
+          <div class="section-card-image-container">
+            <img src="https://via.placeholder.com/800x600" alt="Masterpieces" class="section-card-image">
+          </div>
+          <div class="section-card-content">
+            <h3 class="section-card-title text-accent">ObrasPrimas</h3>
+            <p class="section-card-description">
+              Experience the masterpieces that changed the course of art history and continue to inspire.
+            </p>
+            <a href="/obras-primas" class="section-card-link text-accent">
+              View Masterpieces
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Section -->
+  <section class="featured-section">
+    <div class="container">
+      <h2 class="text-3xl text-center mb-16">Featured Art Movement</h2>
+      
+      <div class="featured-container">
+        <div class="featured-image-container">
+          <img src="https://via.placeholder.com/1000x800" alt="Impressionism" class="featured-image">
+        </div>
+        <div class="featured-content">
+          <span class="featured-badge">Featured Movement</span>
+          <h3 class="featured-title">Impressionism</h3>
+          <p class="featured-description">
+            Impressionism emerged in the 19th century, characterized by small, thin brush strokes, 
+            emphasis on accurate depiction of light, ordinary subject matter, and unusual visual angles.
+          </p>
+          <div class="mb-6">
+            <h4 class="featured-artists-title">Notable Artists:</h4>
+            <div class="featured-artists-list">
+              <span class="artist-tag">Claude Monet</span>
+              <span class="artist-tag">Edgar Degas</span>
+              <span class="artist-tag">Pierre-Auguste Renoir</span>
+            </div>
+          </div>
+          <a href="/escuelas/impressionism" class="featured-button">
+            Learn More
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">KunstReise</h3>
+          <p class="footer-description">
+            Exploring the journey of art through movements, artists, and masterpieces.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="/escuelas" class="footer-link">Escuelas</a></li>
+            <li><a href="/artists" class="footer-link">Artists</a></li>
+            <li><a href="/obras-primas" class="footer-link">ObrasPrimas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">About</h4>
+          <ul class="footer-links space-y-2">
+            <li><a href="about.html" class="footer-link">Read about this project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <script>document.write(new Date().getFullYear())</script> KunstReise. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

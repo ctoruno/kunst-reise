@@ -1,5 +1,6 @@
 #[macro_use] extern crate rocket;
 
+use diesel::connection;
 use rocket_dyn_templates::{Template, context};
 use slug::slugify;
 use std::collections::HashMap;
